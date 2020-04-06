@@ -1,6 +1,7 @@
 mp.events.addCommand('givegun', (player) => {
     gm.mysql.handle.query('SELECT `gunA` FROM `accounts` WHERE `username` = ?', [player.name], function (err, res) {
         if (err) throw err;
+        console.log(`Res: ${res}`) 
         if (res == 1) {
             player.giveWeapon([3220176749, 2210333304], 1000); // Assault Rifle, Carbine Rifle
         } else {
